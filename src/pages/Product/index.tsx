@@ -93,7 +93,7 @@ const TableList: React.FC = () => {
       render: (_, entity) => {
         return (
           <QRCode
-            value={entity.sn}
+            value={entity.qr_sn}
             size={100}
             bgColor={'#ffffff'}
             fgColor={'#000000'}
