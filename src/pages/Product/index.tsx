@@ -104,8 +104,8 @@ const TableList: React.FC = () => {
               src: ql,
               x: null,
               y: null,
-              height: 25,
-              width: 25,
+              height: 15,
+              width: 15,
               excavate: true,
             }}
           />
