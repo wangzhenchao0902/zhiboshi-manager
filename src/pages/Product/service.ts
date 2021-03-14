@@ -35,3 +35,9 @@ export async function generate(size: number) {
     },
   });
 }
+
+export async function download() {
+  return request('/api/manager/product/export', {
+    method: 'GET',
+  });
+}

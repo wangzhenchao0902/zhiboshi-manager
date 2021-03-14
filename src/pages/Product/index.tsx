@@ -4,7 +4,7 @@ import { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
 import ProTable from '@ant-design/pro-table';
 import type { ProColumns, ActionType } from '@ant-design/pro-table';
 import type { TableListItem } from './data.d';
-import { queryRule, generate, setUsed, removeRule } from './service';
+import { queryRule, download, generate, setUsed, removeRule } from './service';
 import QRCode from 'qrcode.react';
 import { FormattedMessage } from 'umi';
 
@@ -37,6 +37,20 @@ const handleUse = async (id: number) => {
     await setUsed(id);
     hide();
     message.success('更新成功，即将刷新');
+    return true;
+  } catch (error) {
+    hide();
+    message.error(error.message);
+    return false;
+  }
+};
+
+const handleExport = async () => {
+  const hide = message.loading('正在导出');
+  try {
+    await download();
+    hide();
+    message.success('导出成功，即将刷新');
     return true;
   } catch (error) {
     hide();
@@ -78,6 +92,11 @@ const TableList: React.FC = () => {
         ['0', { text: '待使用', status: 'Success' }],
         ['1', { text: '已使用', status: 'Error' }],
       ]),
+    },
+    {
+      title: '质保ID',
+      dataIndex: 'warranty_id',
+      hideInForm: true,
     },
     {
       title: '产品编号',
@@ -153,6 +172,19 @@ const TableList: React.FC = () => {
         columns={columns}
         toolBarRender={() => [
           <>
+            <Button
+              type="primary"
+              onClick={async () => {
+                const success = await handleExport();
+                if (success) {
+                  if (actionRef.current) {
+                    actionRef.current.reload();
+                  }
+                }
+              }}
+            >
+              导出
+            </Button>{' '}
             <Button
               type="primary"
               onClick={async () => {

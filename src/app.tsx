@@ -119,8 +119,31 @@ const errorHandler = (error: ResponseError) => {
 };
 
 const responseInterceptor = async (response: Response) => {
-  const data = await response.clone().json();
+  const disposition = response.headers.get('content-disposition');
+  if (disposition) {
+    const splitDis = disposition.split(';');
+    if (splitDis[0] === 'attachment') {
+      const fileNameDefault = splitDis[1].split('filename=')[1];
+      const fileNameUnicode = disposition.split('filename*=')[1];
+      const filename = fileNameUnicode
+        ? decodeURIComponent(fileNameUnicode.split("''")[1])
+        : fileNameDefault;
+      response
+        .clone()
+        .blob()
+        .then((blob) => {
+          const link = document.createElement('a');
+          link.style.display = 'none';
+          link.href = URL.createObjectURL(blob);
+          link.download = filename;
+          link.click();
+          URL.revokeObjectURL(link.href);
+        });
+    }
+    return response;
+  }
 
+  const data = await response.clone().json();
   if (data.result) {
     return data.data;
   }
