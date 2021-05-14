@@ -42,7 +42,7 @@ class ImgUploader extends React.Component<UploadProps, { loading: boolean; fileL
     }
     if (info.file.status === 'done') {
       // trigger parent event
-      if (info.file.response.code === 200) {
+      if (info.file.response.result === true) {
         this.setState({
           loading: false,
           fileList: [{ url: info.file.response.data.preview_url }],
