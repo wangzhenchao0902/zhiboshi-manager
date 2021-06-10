@@ -76,8 +76,8 @@ const handleGenerate = async (num: number, year: number) => {
 const TableList: React.FC = () => {
   const actionRef = useRef<ActionType>();
   const [selectedRowsState, setSelectedRows] = useState<TableListItem[]>([]);
-  const [autoGenerateNum, setAutoGenerateNum, autoGenerateYear, setAutoGenerateYear] =
-    useState<any>(10);
+  const [autoGenerateNum, setAutoGenerateNum] = useState<any>(10);
+  const [autoGenerateYear, setAutoGenerateYear] = useState<any>(10);
 
   const columns: ProColumns<TableListItem>[] = [
     {
@@ -103,6 +103,7 @@ const TableList: React.FC = () => {
       title: '年限',
       dataIndex: 'year',
       hideInForm: true,
+      hideInSearch: true,
     },
     {
       title: '产品编号',
