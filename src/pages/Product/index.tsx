@@ -59,10 +59,10 @@ const handleExport = async () => {
   }
 };
 
-const handleGenerate = async (num: number) => {
+const handleGenerate = async (num: number, year: number) => {
   const hide = message.loading('正在生成');
   try {
-    await generate(num);
+    await generate(num, year);
     hide();
     message.success('生成成功，即将刷新');
     return true;
@@ -76,7 +76,8 @@ const handleGenerate = async (num: number) => {
 const TableList: React.FC = () => {
   const actionRef = useRef<ActionType>();
   const [selectedRowsState, setSelectedRows] = useState<TableListItem[]>([]);
-  const [autoGenerateNum, setAutoGenerateNum] = useState<any>(10);
+  const [autoGenerateNum, setAutoGenerateNum, autoGenerateYear, setAutoGenerateYear] =
+    useState<any>(10);
 
   const columns: ProColumns<TableListItem>[] = [
     {
@@ -96,6 +97,11 @@ const TableList: React.FC = () => {
     {
       title: '质保ID',
       dataIndex: 'warranty_id',
+      hideInForm: true,
+    },
+    {
+      title: '年限',
+      dataIndex: 'year',
       hideInForm: true,
     },
     {
@@ -188,7 +194,7 @@ const TableList: React.FC = () => {
             <Button
               type="primary"
               onClick={async () => {
-                const success = await handleGenerate(autoGenerateNum);
+                const success = await handleGenerate(autoGenerateNum, autoGenerateYear);
                 if (success) {
                   if (actionRef.current) {
                     actionRef.current.reload();
@@ -206,7 +212,16 @@ const TableList: React.FC = () => {
               defaultValue={autoGenerateNum}
               max={500}
             />
-            个
+            个，年限
+            <InputNumber
+              onChange={(e) => {
+                setAutoGenerateYear(e);
+              }}
+              style={{ width: 80 }}
+              defaultValue={autoGenerateYear}
+              max={10}
+            />
+            年
           </>,
         ]}
         rowSelection={{

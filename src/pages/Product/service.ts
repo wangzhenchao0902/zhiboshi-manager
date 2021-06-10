@@ -27,11 +27,12 @@ export async function setUsed(id: number) {
   });
 }
 
-export async function generate(size: number) {
+export async function generate(size: number, year: number) {
   return request('/api/manager/product/generate', {
     method: 'POST',
     data: {
       num: size,
+      year,
     },
   });
 }
