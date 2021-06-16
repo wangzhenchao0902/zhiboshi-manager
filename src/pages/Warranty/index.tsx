@@ -76,7 +76,7 @@ const TableList: React.FC = () => {
       hideInForm: true,
     },
     {
-      title: '车架号(VIN码)',
+      title: '车架号',
       dataIndex: 'vin',
       hideInForm: true,
     },
