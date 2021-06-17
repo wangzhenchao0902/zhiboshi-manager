@@ -150,6 +150,16 @@ const TableList: React.FC = () => {
       title: '是否推荐',
       dataIndex: 'recommend',
       // hideInTable: true,
+      render: (_, entity) => {
+        return (
+          <TableSwitch
+            checked={entity.recommend === 1}
+            onChange={(checked) => {
+              return handleUpdate(entity.id, { recommend: checked ? 1 : 0 });
+            }}
+          ></TableSwitch>
+        );
+      },
       valueEnum: new Map([
         ['1', { text: '是' }],
         ['0', { text: '否' }],
