@@ -149,7 +149,7 @@ const TableList: React.FC = () => {
     {
       title: '是否推荐',
       dataIndex: 'recommend',
-      hideInTable: true,
+      // hideInTable: true,
       valueEnum: new Map([
         ['1', { text: '是' }],
         ['0', { text: '否' }],
