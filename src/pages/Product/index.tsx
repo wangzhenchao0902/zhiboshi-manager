@@ -1,4 +1,4 @@
-import { Button, InputNumber, message } from 'antd';
+import { Button, InputNumber, message, Checkbox } from 'antd';
 import React, { useState, useRef } from 'react';
 import { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
 import ProTable from '@ant-design/pro-table';
@@ -59,10 +59,10 @@ const handleExport = async () => {
   }
 };
 
-const handleGenerate = async (num: number, year: number) => {
+const handleGenerate = async (num: number, year: number, complimentary: boolean) => {
   const hide = message.loading('正在生成');
   try {
-    await generate(num, year);
+    await generate(num, year, complimentary);
     hide();
     message.success('生成成功，即将刷新');
     return true;
@@ -78,13 +78,10 @@ const TableList: React.FC = () => {
   const [selectedRowsState, setSelectedRows] = useState<TableListItem[]>([]);
   const [autoGenerateNum, setAutoGenerateNum] = useState<any>(10);
   const [autoGenerateYear, setAutoGenerateYear] = useState<any>(10);
+  const [autoGenerateComplimentary, setAutoGenerateComplimentary] = useState<any>(10);
 
   const columns: ProColumns<TableListItem>[] = [
-    {
-      title: 'ID',
-      dataIndex: 'id',
-      hideInForm: true,
-    },
+    { title: 'ID', dataIndex: 'id', hideInForm: true },
     {
       title: '状态',
       dataIndex: 'status',
@@ -94,23 +91,10 @@ const TableList: React.FC = () => {
         ['1', { text: '已使用', status: 'Error' }],
       ]),
     },
-    {
-      title: '质保ID',
-      dataIndex: 'warranty_id',
-      hideInForm: true,
-    },
-    {
-      title: '年限',
-      dataIndex: 'year',
-      hideInForm: true,
-      hideInSearch: true,
-    },
-    {
-      title: '产品编号',
-      dataIndex: 'sn',
-      hideInForm: true,
-      hideInSearch: true,
-    },
+    { title: '质保ID', dataIndex: 'warranty_id', hideInForm: true },
+    { title: '年限', dataIndex: 'year', hideInForm: true, hideInSearch: true },
+    { title: '终生免费补膜', dataIndex: 'complimentary', hideInForm: true, hideInSearch: true },
+    { title: '产品编号', dataIndex: 'sn', hideInForm: true, hideInSearch: true },
     {
       title: '二维码',
       dataIndex: 'sn',
@@ -195,7 +179,11 @@ const TableList: React.FC = () => {
             <Button
               type="primary"
               onClick={async () => {
-                const success = await handleGenerate(autoGenerateNum, autoGenerateYear);
+                const success = await handleGenerate(
+                  autoGenerateNum,
+                  autoGenerateYear,
+                  autoGenerateComplimentary,
+                );
                 if (success) {
                   if (actionRef.current) {
                     actionRef.current.reload();
@@ -205,6 +193,13 @@ const TableList: React.FC = () => {
             >
               编号生成
             </Button>{' '}
+            <Checkbox
+              onChange={(e) => {
+                setAutoGenerateComplimentary(e);
+              }}
+            >
+              终生免费补膜
+            </Checkbox>
             <InputNumber
               onChange={(e) => {
                 setAutoGenerateNum(e);

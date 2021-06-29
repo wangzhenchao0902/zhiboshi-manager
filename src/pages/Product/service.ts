@@ -27,10 +27,11 @@ export async function setUsed(id: number) {
   });
 }
 
-export async function generate(size: number, year: number) {
+export async function generate(size: number, year: number, complimentary: boolean) {
   return request('/api/manager/product/generate', {
     method: 'POST',
     data: {
+      complimentary,
       num: size,
       year,
     },
