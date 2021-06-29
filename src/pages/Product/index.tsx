@@ -195,7 +195,7 @@ const TableList: React.FC = () => {
             </Button>{' '}
             <Checkbox
               onChange={(e) => {
-                setAutoGenerateComplimentary(e);
+                setAutoGenerateComplimentary(e.target.checked);
               }}
             >
               终生免费补膜
