@@ -93,7 +93,16 @@ const TableList: React.FC = () => {
     },
     { title: '质保ID', dataIndex: 'warranty_id', hideInForm: true },
     { title: '年限', dataIndex: 'year', hideInForm: true, hideInSearch: true },
-    { title: '终生免费补膜', dataIndex: 'complimentary', hideInForm: true, hideInSearch: true },
+    {
+      title: '终生免费补膜',
+      dataIndex: 'complimentary',
+      hideInForm: true,
+      hideInSearch: true,
+      valueEnum: new Map([
+        ['0', { text: '否' }],
+        ['1', { text: '是' }],
+      ]),
+    },
     { title: '产品编号', dataIndex: 'sn', hideInForm: true, hideInSearch: true },
     {
       title: '二维码',
@@ -195,7 +204,7 @@ const TableList: React.FC = () => {
             </Button>{' '}
             <Checkbox
               onChange={(e) => {
-                setAutoGenerateComplimentary(e.target.checked);
+                setAutoGenerateComplimentary(e.target.checked ? 1 : 0);
               }}
             >
               终生免费补膜
