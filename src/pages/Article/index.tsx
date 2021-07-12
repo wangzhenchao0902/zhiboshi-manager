@@ -176,9 +176,6 @@ const TableList: React.FC = () => {
             onChange={(e) => {
               return handleUpdate(entity.id, { order_number: Number(e.target.value) });
             }}
-            onBlur={(e) => {
-              return handleUpdate(entity.id, { order_number: Number(e.target.value) });
-            }}
             placeholder="数字越大，越排在前面"
             max={1000}
           />
