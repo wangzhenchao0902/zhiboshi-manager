@@ -1,5 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, message, Drawer } from 'antd';
+import { Button, message, Drawer, Input } from 'antd';
 import React, { useState, useRef } from 'react';
 import { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
 import ProTable from '@ant-design/pro-table';
@@ -171,13 +171,17 @@ const TableList: React.FC = () => {
       dataIndex: 'order_number',
       render: (_, entity) => {
         return (
-          <input
-            type="text"
+          <Input
             value={entity.order_number}
             onChange={(e) => {
               return handleUpdate(entity.id, { order_number: Number(e.target.value) });
             }}
-          ></input>
+            onBlur={(e) => {
+              return handleUpdate(entity.id, { order_number: Number(e.target.value) });
+            }}
+            placeholder="数字越大，越排在前面"
+            max={1000}
+          />
         );
       },
     },
