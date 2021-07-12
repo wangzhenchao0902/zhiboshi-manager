@@ -98,11 +98,11 @@ const TableList: React.FC = () => {
         ],
       },
     },
-    {
-      title: '分类',
-      dataIndex: 'category_name',
-      hideInForm: true,
-    },
+    // {
+    //   title: '分类',
+    //   dataIndex: 'category_name',
+    //   hideInForm: true,
+    // },
     {
       title: '分类',
       dataIndex: 'category_id',
@@ -169,6 +169,17 @@ const TableList: React.FC = () => {
       title: '排序',
       hideInSearch: true,
       dataIndex: 'order_number',
+      render: (_, entity) => {
+        return (
+          <input
+            type="text"
+            value={entity.order_number}
+            onChange={(e) => {
+              return handleUpdate(entity.id, { order_number: Number(e.target.value) });
+            }}
+          ></input>
+        );
+      },
     },
     {
       title: '封面',
