@@ -172,7 +172,7 @@ const TableList: React.FC = () => {
       render: (_, entity) => {
         return (
           <Input
-            value={entity.order_number}
+            defaultValue={entity.order_number}
             onChange={(e) => {
               return handleUpdate(entity.id, { order_number: Number(e.target.value) });
             }}
