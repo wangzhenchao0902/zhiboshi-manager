@@ -27,7 +27,7 @@ export async function setUsed(id: number) {
   });
 }
 
-export async function generate(size: number, year: number, complimentary: boolean) {
+export async function generate(size: number, year: number, complimentary: number) {
   return request('/api/manager/product/generate', {
     method: 'POST',
     data: {

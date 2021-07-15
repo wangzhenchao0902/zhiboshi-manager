@@ -59,7 +59,7 @@ const handleExport = async () => {
   }
 };
 
-const handleGenerate = async (num: number, year: number, complimentary: boolean) => {
+const handleGenerate = async (num: number, year: number, complimentary: number) => {
   const hide = message.loading('正在生成');
   try {
     await generate(num, year, complimentary);
