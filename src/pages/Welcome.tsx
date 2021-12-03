@@ -19,7 +19,7 @@ export default (): React.ReactNode => {
         <Alert
           message={intl.formatMessage({
             id: 'pages.welcome.versionMessage',
-            defaultMessage: '智博士后台管理系统 V1.0。',
+            defaultMessage: '智博士后台管理系统 V1.1。',
           })}
           type="success"
           showIcon
