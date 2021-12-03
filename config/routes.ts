@@ -55,6 +55,18 @@ export default [
     component: './Product',
   },
   {
+    name: 'warranty.warrantychechuang-list',
+    icon: 'table',
+    path: '/warrantychechuang',
+    component: './Warranty',
+  },
+  {
+    name: 'product.productchechuang-list',
+    icon: 'bars',
+    path: '/productchechuang',
+    component: './Product',
+  },
+  {
     component: './404',
   },
 ];

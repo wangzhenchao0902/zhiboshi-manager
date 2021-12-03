@@ -52,5 +52,7 @@ export default {
   'menu.article.article-list': '文章列表',
   'menu.admin.admin-manage': '管理员账号',
   'menu.warranty.warranty-list': '质保记录',
+  'menu.warranty.warrantychechuang-list': '车窗膜质保记录',
   'menu.product.product-list': '产品列表',
+  'menu.product.productchechuang-list': '车窗膜产品列表',
 };
