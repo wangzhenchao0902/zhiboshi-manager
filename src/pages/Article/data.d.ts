@@ -43,4 +43,5 @@ export type TableListParams = {
   category_id?: number;
   pageSize?: number;
   current?: number;
+  tags?: string;
 };
