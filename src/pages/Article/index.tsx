@@ -98,11 +98,12 @@ const TableList: React.FC = () => {
         ],
       },
     },
-    // {
-    //   title: '分类',
-    //   dataIndex: 'category_name',
-    //   hideInForm: true,
-    // },
+    {
+      title: '品牌',
+      dataIndex: 'tags',
+      hideInSearch: true,
+      hideInForm: true,
+    },
     {
       title: '分类',
       dataIndex: 'category_id',

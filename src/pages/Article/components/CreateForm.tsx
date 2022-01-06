@@ -73,11 +73,7 @@ const CreateForm: React.FC<CreateFormProps> = (props) => {
             <Option value={4}>联系我们</Option>
           </Select>
         </FormItem>
-        <FormItem
-          name="tags"
-          label="品牌"
-          rules={[{ required: true, message: '案例中心请输入品牌！' }]}
-        >
+        <FormItem name="tags" label="品牌">
           <Input placeholder="请输入" />
         </FormItem>
         <Form.Item name="cover" label="封面图" getValueFromEvent={normFile}>
