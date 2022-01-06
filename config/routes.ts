@@ -43,6 +43,12 @@ export default [
     component: './Article',
   },
   {
+    name: 'anli.anli-list',
+    icon: 'unorderedList',
+    path: '/anli',
+    component: './Anli',
+  },
+  {
     name: 'warranty.warranty-list',
     icon: 'table',
     path: '/warranty',
