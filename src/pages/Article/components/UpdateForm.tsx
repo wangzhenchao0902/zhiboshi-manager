@@ -74,7 +74,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
         <FormItem name="category_id" label="分类" rules={[{ required: true }]}>
           <Select style={{ width: 120 }}>
             <Option value={1}>新闻中心</Option>
-            <Option value={2}>案例中心</Option>
+            {/* <Option value={2}>案例中心</Option> */}
             <Option value={3}>关于我们</Option>
             <Option value={4}>联系我们</Option>
           </Select>
