@@ -9,6 +9,7 @@ export type TableListItem = {
   cover: string;
   preview_url: string;
   category_id: number;
+  tags: string;
   // disabled?: boolean;
   // href: string;
   // avatar: string;

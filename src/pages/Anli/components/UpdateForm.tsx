@@ -47,6 +47,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
     cover: props.values.cover,
     preview_url: props.values.preview_url,
     category_id: props.values.category_id,
+    tags: props.values.tags,
   });
 
   const [form] = Form.useForm();
@@ -140,6 +141,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           cover: formVals.cover,
           preview_url: formVals.preview_url,
           category_id: formVals.category_id,
+          tags: formVals.tags,
         }}
       >
         {renderContent()}
