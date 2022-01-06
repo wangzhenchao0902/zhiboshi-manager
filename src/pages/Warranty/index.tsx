@@ -64,6 +64,7 @@ const TableList: React.FC = () => {
     { title: '姓名', dataIndex: 'name', hideInForm: true },
     { title: '手机号', dataIndex: 'phone', hideInForm: true },
     { title: '车架号', dataIndex: 'vin', hideInForm: true },
+    { title: '质保型号', dataIndex: 'category', hideInForm: true },
     { title: '开始时间', dataIndex: 'start_at', hideInForm: true, hideInSearch: true },
     { title: '结束时间', dataIndex: 'end_at', hideInForm: true, hideInSearch: true },
     {
