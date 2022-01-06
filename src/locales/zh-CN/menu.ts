@@ -49,7 +49,7 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
-  'menu.article.article-list': '文章列表',
+  'menu.article.article-list': '新闻中心',
   'menu.anli.anli-list': '案例中心',
   'menu.admin.admin-manage': '管理员账号',
   'menu.warranty.warranty-list': '车衣质保记录',

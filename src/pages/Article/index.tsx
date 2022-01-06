@@ -98,17 +98,17 @@ const TableList: React.FC = () => {
         ],
       },
     },
-    {
-      title: '分类',
-      dataIndex: 'category_id',
-      hideInTable: true,
-      valueEnum: new Map([
-        ['1', { text: '新闻中心' }],
-        // ['2', { text: '案例中心' }],
-        ['3', { text: '关于我们' }],
-        ['4', { text: '联系我们' }],
-      ]),
-    },
+    // {
+    //   title: '分类',
+    //   dataIndex: 'category_id',
+    //   hideInTable: true,
+    //   valueEnum: new Map([
+    //     ['1', { text: '新闻中心' }],
+    //     ['2', { text: '案例中心' }],
+    //     ['3', { text: '关于我们' }],
+    //     ['4', { text: '联系我们' }],
+    //   ]),
+    // },
     {
       title: '状态',
       dataIndex: 'status',
