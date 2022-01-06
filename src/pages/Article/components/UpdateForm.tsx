@@ -79,9 +79,6 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
             <Option value={4}>联系我们</Option>
           </Select>
         </FormItem>
-        <FormItem name="tags" label="品牌">
-          <Input placeholder="请输入" />
-        </FormItem>
         <Form.Item
           name="cover"
           label="封面图"
