@@ -1,4 +1,4 @@
-import { Button, InputNumber, message, Checkbox } from 'antd';
+import { Button, InputNumber, message, Checkbox, Select } from 'antd';
 import React, { useState, useRef } from 'react';
 import { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
 import ProTable from '@ant-design/pro-table';
@@ -9,6 +9,7 @@ import QRCode from 'qrcode.react';
 import { FormattedMessage } from 'umi';
 
 import ql from '../../../public/logo_50x50.png';
+const { Option } = Select;
 
 /**
  *  删除节点
@@ -59,10 +60,15 @@ const handleExport = async () => {
   }
 };
 
-const handleGenerate = async (num: number, year: number, complimentary: number) => {
+const handleGenerate = async (
+  num: number,
+  year: number,
+  complimentary: number,
+  category: string,
+) => {
   const hide = message.loading('正在生成');
   try {
-    await generate(num, year, complimentary);
+    await generate(num, year, complimentary, category);
     hide();
     message.success('生成成功，即将刷新');
     return true;
@@ -79,6 +85,7 @@ const TableList: React.FC = () => {
   const [autoGenerateNum, setAutoGenerateNum] = useState<any>(10);
   const [autoGenerateYear, setAutoGenerateYear] = useState<any>(10);
   const [autoGenerateComplimentary, setAutoGenerateComplimentary] = useState<any>(10);
+  const [autoCategory, setAutoCategory] = useState<any>(10);
 
   const columns: ProColumns<TableListItem>[] = [
     { title: 'ID', dataIndex: 'id', hideInForm: true },
@@ -105,6 +112,19 @@ const TableList: React.FC = () => {
     },
     { title: '产品编号', dataIndex: 'sn', hideInForm: true, hideInSearch: true },
     {
+      title: '型号',
+      dataIndex: 'category',
+      hideInForm: true,
+      hideInSearch: true,
+      valueEnum: new Map([
+        ['', { text: '不限' }],
+        ['金刚盾', { text: '金刚盾' }],
+        ['全能王', { text: '全能王' }],
+        ['仿生王', { text: '仿生王' }],
+        ['哑光版', { text: '哑光版' }],
+      ]),
+    },
+    {
       title: '二维码',
       dataIndex: 'sn',
       hideInForm: true,
@@ -119,14 +139,7 @@ const TableList: React.FC = () => {
             level={'L'}
             includeMargin={false}
             renderAs={'svg'}
-            imageSettings={{
-              src: ql,
-              x: null,
-              y: null,
-              height: 12,
-              width: 12,
-              excavate: true,
-            }}
+            imageSettings={{ src: ql, x: null, y: null, height: 12, width: 12, excavate: true }}
           />
         );
       },
@@ -192,6 +205,7 @@ const TableList: React.FC = () => {
                   autoGenerateNum,
                   autoGenerateYear,
                   autoGenerateComplimentary,
+                  autoCategory,
                 );
                 if (success) {
                   if (actionRef.current) {
@@ -227,6 +241,19 @@ const TableList: React.FC = () => {
               max={10}
             />
             年
+            <Select
+              defaultValue={autoCategory}
+              style={{ width: 120 }}
+              onChange={(e) => {
+                setAutoCategory(e);
+              }}
+            >
+              <Option value="">不限型号</Option>
+              <Option value="金刚盾">金刚盾</Option>
+              <Option value="全能王">全能王</Option>
+              <Option value="仿生王">仿生王</Option>
+              <Option value="哑光版">哑光版</Option>
+            </Select>
           </>,
         ]}
         rowSelection={{
