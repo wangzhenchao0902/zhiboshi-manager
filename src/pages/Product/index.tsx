@@ -85,7 +85,7 @@ const TableList: React.FC = () => {
   const [autoGenerateNum, setAutoGenerateNum] = useState<any>(10);
   const [autoGenerateYear, setAutoGenerateYear] = useState<any>(10);
   const [autoGenerateComplimentary, setAutoGenerateComplimentary] = useState<any>(10);
-  const [autoCategory, setAutoCategory] = useState<any>(10);
+  const [autoCategory, setAutoCategory] = useState<any>('');
 
   const columns: ProColumns<TableListItem>[] = [
     { title: 'ID', dataIndex: 'id', hideInForm: true },
