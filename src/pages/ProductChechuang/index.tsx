@@ -78,7 +78,7 @@ const TableList: React.FC = () => {
   const [selectedRowsState, setSelectedRows] = useState<TableListItem[]>([]);
   const [autoGenerateNum, setAutoGenerateNum] = useState<any>(10);
   const [autoGenerateYear, setAutoGenerateYear] = useState<any>(10);
-  const [autoGenerateComplimentary, setAutoGenerateComplimentary] = useState<any>(10);
+  const [autoGenerateComplimentary, setAutoGenerateComplimentary] = useState<any>(0);
 
   const columns: ProColumns<TableListItem>[] = [
     { title: 'ID', dataIndex: 'id', hideInForm: true },
@@ -100,6 +100,7 @@ const TableList: React.FC = () => {
       hideInSearch: true,
       valueEnum: new Map([
         ['0', { text: '否' }],
+        ['10', { text: '否' }],
         ['1', { text: '是' }],
       ]),
     },
