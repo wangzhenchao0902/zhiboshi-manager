@@ -224,7 +224,7 @@ const TableList: React.FC = () => {
               }}
               style={{ width: 80 }}
               defaultValue={autoGenerateYear}
-              max={10}
+              max={30}
             />
             年
           </>,
