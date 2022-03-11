@@ -4,6 +4,7 @@ export type TableListItem = {
   phone: string;
   status: number;
   product_id: number;
+  year: number;
   start_at: string;
   end_at: string;
   // disabled?: boolean;

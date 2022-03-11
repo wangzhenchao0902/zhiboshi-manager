@@ -68,6 +68,9 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
         <FormItem name="phone" label="手机号">
           <Input disabled value={formVals.phone} placeholder="请输入" />
         </FormItem>
+        <FormItem name="year" label="年限" rules={[{ required: true }]}>
+          <Input value={formVals.year} placeholder="请输入" />
+        </FormItem>
         <FormItem name="start_at" label="开始时间" rules={[{ required: true }]}>
           <DatePicker showTime />
         </FormItem>
