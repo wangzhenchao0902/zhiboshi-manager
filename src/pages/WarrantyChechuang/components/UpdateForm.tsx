@@ -111,6 +111,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           name: formVals.name,
           status: formVals.status,
           phone: formVals.phone,
+          year: formVals.year,
           start_at: moment(formVals.start_at),
           end_at: moment(formVals.end_at),
         }}
