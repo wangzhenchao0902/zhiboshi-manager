@@ -26,8 +26,8 @@ export type UpdateFormState = {
 };
 
 const formLayout = {
-  labelCol: { span: 3 },
-  wrapperCol: { span: 21 },
+  labelCol: { span: 6 },
+  wrapperCol: { span: 18 },
 };
 
 const UpdateForm: React.FC<UpdateFormProps> = (props) => {
@@ -38,6 +38,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
     phone: props.values.phone,
     start_at: props.values.start_at,
     end_at: props.values.end_at,
+    year: props.values.year,
   });
 
   const [form] = Form.useForm();
@@ -94,7 +95,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
 
   return (
     <Modal
-      width={600}
+      width={400}
       bodyStyle={{ padding: '32px 40px 48px' }}
       destroyOnClose
       title={'修改'}
