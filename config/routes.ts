@@ -48,18 +48,9 @@ export default [
     path: '/anli',
     component: './Anli',
   },
-  {
-    name: 'warranty.warranty-list',
-    icon: 'table',
-    path: '/warranty',
-    component: './Warranty',
-  },
-  {
-    name: 'product.product-list',
-    icon: 'bars',
-    path: '/product',
-    component: './Product',
-  },
+  { name: 'warranty.warranty-list', icon: 'table', path: '/warranty', component: './Warranty' },
+  { name: 'product.product-list', icon: 'bars', path: '/product', component: './Product' },
+
   {
     name: 'warranty.warrantychechuang-list',
     icon: 'table',
@@ -71,6 +62,19 @@ export default [
     icon: 'bars',
     path: '/productchechuang',
     component: './ProductChechuang',
+  },
+
+  {
+    name: 'warranty.warrantytianchuang-list',
+    icon: 'table',
+    path: '/warrantytianchuang',
+    component: './WarrantyTianchuang',
+  },
+  {
+    name: 'product.producttianchuang-list',
+    icon: 'bars',
+    path: '/producttianchuang',
+    component: './ProductTianchuang',
   },
   {
     component: './404',
