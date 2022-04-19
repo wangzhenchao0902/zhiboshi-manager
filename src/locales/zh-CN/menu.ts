@@ -54,6 +54,8 @@ export default {
   'menu.admin.admin-manage': '管理员账号',
   'menu.warranty.warranty-list': '车衣质保记录',
   'menu.warranty.warrantychechuang-list': '车窗膜质保记录',
+  'menu.warranty.warrantytianchuang-list': '天窗冰甲质保记录',
   'menu.product.product-list': '车衣产品列表',
   'menu.product.productchechuang-list': '车窗膜产品列表',
+  'menu.product.producttianchuang-list': '天窗冰甲产品列表',
 };
